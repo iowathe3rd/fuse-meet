@@ -2,6 +2,7 @@
 
 import HomeCard from "@/components/shared/HomeCard";
 import MeetingModal from "@/components/shared/MeetingModal";
+import { useToast } from "@/components/ui/use-toast";
 import { useUser } from "@clerk/nextjs";
 import { Call, useStreamVideoClient } from "@stream-io/video-react-sdk";
 import { useRouter } from "next/navigation";
@@ -28,10 +29,18 @@ const MeetingActionsList = () => {
   const { user } = useUser();
   const client = useStreamVideoClient();
 
+  const { toast } = useToast();
+
   const createMeeting = async () => {
     if (!client || !user) return;
 
     try {
+      if (!values.dateTime) {
+        toast({
+          title: "Please select a date and a time",
+          value: "destructive",
+        });
+      }
       const id = crypto.randomUUID();
 
       const call = client.call("default", id);
@@ -55,6 +64,10 @@ const MeetingActionsList = () => {
       if (!values.description) {
         router.push(`/meeting/${call.id}`);
       }
+
+      toast({
+        title: "Meeting created",
+      });
     } catch (e) {
       console.log(e);
     }
