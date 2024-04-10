@@ -1,4 +1,10 @@
-const SignUp: React.FC = () => {
-  return <>sign up</>;
+import { SignUp } from "@clerk/nextjs";
+
+const SignUpPage: React.FC = () => {
+  return (
+    <main className="w-full h-screen flex-center">
+      <SignUp />
+    </main>
+  );
 };
-export default SignUp;
+export default SignUpPage;
