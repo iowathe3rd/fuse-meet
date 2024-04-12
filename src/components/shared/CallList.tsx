@@ -2,12 +2,13 @@
 
 import { useGetCalls } from "@/hooks/useGetCalls";
 import { Call, CallRecording } from "@stream-io/video-react-sdk";
-import { Loader } from "lucide-react";
 import { useRouter } from "next/navigation";
 import { useEffect, useState } from "react";
 import MeetingCard from "./MeetingCard";
 
 import { ArrowLeft, ArrowRight, Video } from "lucide-react";
+import { MeetingListLoadingSkeleton } from "./Loader";
+
 const CallList = ({ type }: { type: "ended" | "upcoming" | "recordings" }) => {
   const router = useRouter();
   const { endedCalls, upcomingCalls, callRecordings, isLoading } =
@@ -58,10 +59,10 @@ const CallList = ({ type }: { type: "ended" | "upcoming" | "recordings" }) => {
     }
   }, [type, callRecordings]);
 
-  if (isLoading) return <Loader />;
-
   const calls = getCalls();
   const noCallsMessage = getNoCallsMessage();
+
+  if (isLoading) return <MeetingListLoadingSkeleton />;
 
   return (
     <div className="grid gap-5 grid-cols-1 md:grid-cols-2 xl:grid-cols-3">

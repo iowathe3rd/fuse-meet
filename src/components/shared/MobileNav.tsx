@@ -21,7 +21,7 @@ const MobileNav = () => {
       <Sheet>
         <SheetTrigger asChild>
           <Image
-            src="/icons/outline/bars-3-bottom-right"
+            src="/icons/outline/bars-3-bottom-right.svg"
             width={36}
             height={36}
             alt="menu icon"
