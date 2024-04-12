@@ -66,6 +66,12 @@
     }
 }
 
+@layer components {
+    .home-card {
+        @apply hover:bg-muted hover:border-4 transition-all border-border border-2 px-4 py-6 flex flex-col justify-between w-full min-h-[260px] rounded-[14px] cursor-pointer;
+    }
+}
+
 @layer base {
     * {
         @apply border-border;
@@ -85,12 +91,6 @@
     }
 }
 
-.glassmorphism {
-    background: rgba(255, 255, 255, 0.25);
-    backdrop-filter: blur(4px);
-    -webkit-backdrop-filter: blur(4px);
-}
-
 .show-block {
     width: 100%;
     max-width: 350px;
@@ -108,47 +108,4 @@
         animation-timing-function: ease-in;
         width: 100%;
     }
-}
-@layer components {
-    .str-video {
-        /* Button colors */
-        --str-video__button-default-base: --primary;
-        --str-video__button-default-hover: --muted;
-
-        --str-video__button-primary-base: --primary;
-        --str-video__button-primary-hover: --mured;
-
-        --str-video__button-secondary-base: --secondary;
-        --str-video__button-secondary-hover: --muted;
-
-        --str-video__button-tertiary-base: --accent;
-        --str-video__button-tertiary-hover: --muted;
-
-        /* Colors */
-        /* Main colors */
-        --str-video__primary-color: --primary;
-        --str-video__secondary-color: --secondary;
-
-        /*  Text colors */
-        --str-video__text-color1: --primary-foreground;
-        --str-video__text-color2: --primary-foreground;
-        --str-video__text-color3: --primary-foreground;
-        --str-video__text-color4: --primary-foreground;
-
-        --str-video__search-input__container--background-color: --background;
-    }
-
-    .str-video__search-input__container {
-        border-radius: var(--radius);
-        border: 1px solid var(--primary);
-    }
-
-    .str-video__composite-button__button-group {
-        border: 2px solid var(--border);
-        background-color: var(--muted);
-    }
-}
-
-.str-video__menu-container ul {
-    color: white;
 }

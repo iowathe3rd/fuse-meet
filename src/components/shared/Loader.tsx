@@ -37,7 +37,7 @@ export const LoadingSpinner = ({
 export const MeetingListLoadingSkeleton = () => {
   return (
     <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-4">
-      {Array.from(["1", "2", "3", "4"]).map((value) => (
+      {Array.from(["1", "2", "3", "4", "5", "6"]).map((value) => (
         <Skeleton
           key={value}
           className="h-44 w-full mb-4 rounded-radius border border-border"

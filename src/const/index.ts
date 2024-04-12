@@ -1,27 +1,41 @@
-export const sidebarLinks = [
+import {
+    AlarmClockCheck,
+    CalendarCheck,
+    Home,
+    Lock,
+    LucideIcon,
+    Video,
+} from "lucide-react";
+
+type sidebarLink = {
+  icon: LucideIcon;
+  route: string;
+  label: string;
+};
+export const sidebarLinks: sidebarLink[] = [
   {
-    imgURL: "/icons/outline/home.svg",
+    icon: Home,
     route: "/",
     label: "Home",
   },
 
   {
-    imgURL: "/icons/outline/rectangle-stack.svg",
+    icon: AlarmClockCheck,
     route: "/upcoming",
     label: "Upcoming",
   },
   {
-    imgURL: "/icons/outline/backward.svg",
+    icon: CalendarCheck,
     route: "/previous",
     label: "Previous",
   },
   {
-    imgURL: "/icons/outline/video-camera.svg",
+    icon: Video,
     route: "/recordings",
     label: "Recordings",
   },
   {
-    imgURL: "/icons/outline/eye-slash.svg",
+    icon: Lock,
     route: "/personal-room",
     label: "Personal Room",
   },

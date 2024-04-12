@@ -16,6 +16,7 @@ import {
 import { useEffect, useState } from "react";
 
 import { Button } from "@/components/ui/button";
+import { Ban } from "lucide-react";
 import {
   Card,
   CardContent,
@@ -98,12 +99,7 @@ const MeetingSetup = ({
     );
 
   if (callHasEnded)
-    return (
-      <Alert
-        title="The call has been ended by the host"
-        iconUrl="/icons/call-ended.svg"
-      />
-    );
+    return <Alert title="The call has been ended by the host" Icon={Ban} />;
 
   return (
     <div className="h-screen w-full flex items-center justify-center">

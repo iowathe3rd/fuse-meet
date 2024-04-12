@@ -1,10 +1,6 @@
 "use client";
 
-import Image from "next/image";
-
-import { avatarImages } from "@/const";
-import { cn } from "@/lib/utils";
-import { CirclePlay, Copy } from "lucide-react";
+import { CirclePlay, Copy, LucideIcon } from "lucide-react";
 import { ReactNode } from "react";
 import { Button } from "../ui/button";
 import { useToast } from "../ui/use-toast";
@@ -14,7 +10,7 @@ interface MeetingCardProps {
   date: string;
   icon: ReactNode;
   isPreviousMeeting?: boolean;
-  buttonIcon1?: string;
+  buttonIcon1?: LucideIcon;
   buttonText?: string;
   handleClick: () => void;
   link: string;
@@ -25,7 +21,6 @@ const MeetingCard = ({
   title,
   date,
   isPreviousMeeting,
-  buttonIcon1,
   handleClick,
   link,
   buttonText,

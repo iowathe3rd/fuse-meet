@@ -8,7 +8,7 @@ const Navbar = () => {
   return (
     <nav className="border border-border flex-between fixed z-50 w-full bg-background px-6 py-4 lg:px-10">
       <Link href="/" className="flex items-center gap-1">
-        <p className="text-[26px] font-extrabold max-sm:hidden">Fuse</p>
+        <p className="text-[26px] font-extrabold">Fuse</p>
       </Link>
       <div className="flex-between gap-5">
         <SignedIn>

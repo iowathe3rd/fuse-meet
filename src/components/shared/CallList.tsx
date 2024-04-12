@@ -69,7 +69,7 @@ const CallList = ({ type }: { type: "ended" | "upcoming" | "recordings" }) => {
       {calls && calls.length > 0 ? (
         calls.map((meeting: Call | CallRecording) => (
           <MeetingCard
-            key={(meeting as Call).id}
+            key={(meeting as Call).id || (meeting as CallRecording).url}
             icon={
               type === "ended" ? (
                 <ArrowLeft className="h-10 w-10" />
@@ -94,7 +94,6 @@ const CallList = ({ type }: { type: "ended" | "upcoming" | "recordings" }) => {
                 ? (meeting as CallRecording).url
                 : `${process.env.NEXT_PUBLIC_BASE_URL}/meeting/${(meeting as Call).id}`
             }
-            buttonIcon1={type === "recordings" ? "/icons/play.svg" : undefined}
             buttonText={type === "recordings" ? "Play" : "Start"}
             handleClick={
               type === "recordings"

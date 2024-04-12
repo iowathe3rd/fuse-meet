@@ -1,12 +1,10 @@
 "use client";
-
-import Image from "next/image";
-
 import { cn } from "@/lib/utils";
+import { LucideIcon } from "lucide-react";
 
 interface HomeCardProps {
   className?: string;
-  img: string;
+  Icon: LucideIcon;
   title: string;
   description: string;
   handleClick?: () => void;
@@ -14,21 +12,15 @@ interface HomeCardProps {
 
 const HomeCard: React.FC<HomeCardProps> = ({
   description,
-  img,
+  Icon,
   title,
   className,
   handleClick,
 }) => {
   return (
-    <section
-      className={cn(
-        "bg-background border-border border-2 px-4 py-6 flex flex-col justify-between w-full  min-h-[260px] rounded-[14px] cursor-pointer",
-        className,
-      )}
-      onClick={handleClick}
-    >
+    <section className={cn("home-card", className)} onClick={handleClick}>
       <div className="flex-center glassmorphism size-12 rounded-[10px]">
-        <Image src={img} alt="meeting" width={27} height={27} />
+        <Icon className="h-8 w-8" />
       </div>
 
       <div className="flex flex-col gap-2">

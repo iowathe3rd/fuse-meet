@@ -58,23 +58,28 @@ const PersonalRoom: React.FC = () => {
   return (
     <section className="flex size-full flex-col gap-10">
       <h1 className="text-xl font-bold lg:text-3xl">Personal Meeting Room</h1>
-      <div className="flex w-full flex-col gap-8 xl:max-w-[900px]">
-        <Table title="Topic" description={`${user?.username}'s Meeting Room`} />
-        <Table title="Meeting ID" description={meetingId!} />
-        <Table title="Invite Link" description={meetingLink} />
-      </div>
-      <div className="flex gap-5">
-        <Button onClick={startRoom}>Start Meeting</Button>
-        <Button
-          onClick={() => {
-            navigator.clipboard.writeText(meetingLink);
-            toast({
-              title: "Link Copied",
-            });
-          }}
-        >
-          Copy Invitation
-        </Button>
+      <div className="border-border border-2 p-4 rounded-lg w-fit flex flex-col gap-4">
+        <div className="flex w-full flex-col gap-8 xl:max-w-[900px]">
+          <Table
+            title="Topic"
+            description={`${user?.username}'s Meeting Room`}
+          />
+          <Table title="Meeting ID" description={meetingId!} />
+          <Table title="Invite Link" description={meetingLink} />
+        </div>
+        <div className="flex gap-5">
+          <Button onClick={startRoom}>Start Meeting</Button>
+          <Button
+            onClick={() => {
+              navigator.clipboard.writeText(meetingLink);
+              toast({
+                title: "Link Copied",
+              });
+            }}
+          >
+            Copy Invitation
+          </Button>
+        </div>
       </div>
     </section>
   );

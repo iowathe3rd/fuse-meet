@@ -12,6 +12,7 @@ import {
 } from "@/components/ui/sheet";
 import { sidebarLinks } from "@/const";
 import { cn } from "@/lib/utils";
+import { Menu } from "lucide-react";
 
 const MobileNav = () => {
   const pathname = usePathname();
@@ -19,23 +20,11 @@ const MobileNav = () => {
   return (
     <section className="w-full max-w-[264px]">
       <Sheet>
-        <SheetTrigger asChild>
-          <Image
-            src="/icons/outline/bars-3-bottom-right.svg"
-            width={36}
-            height={36}
-            alt="menu icon"
-            className="cursor-pointer sm:hidden"
-          />
+        <SheetTrigger asChild className="cursor-pointer">
+          <Menu className="h-8 w-8" />
         </SheetTrigger>
         <SheetContent side="left" className="border-none bg-background">
           <Link href="/" className="flex items-center gap-1">
-            <Image
-              src="/icons/logo.svg"
-              width={32}
-              height={32}
-              alt="yoom logo"
-            />
             <p className="text-[26px] font-extrabold">Fuse</p>
           </Link>
           <div className="flex h-[calc(100vh-72px)] flex-col justify-between overflow-y-auto">
@@ -56,12 +45,7 @@ const MobileNav = () => {
                           },
                         )}
                       >
-                        <Image
-                          src={item.imgURL}
-                          alt={item.label}
-                          width={20}
-                          height={20}
-                        />
+                        {<item.icon />}
                         <p className="font-semibold">{item.label}</p>
                       </Link>
                     </SheetClose>
